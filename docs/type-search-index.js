@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"ru.top.academy","l":"Main"},{"p":"ru.top.academy","l":"MyArrayList"}];updateSearchResults();
