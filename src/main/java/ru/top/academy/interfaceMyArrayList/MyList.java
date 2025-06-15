@@ -69,6 +69,7 @@ public interface MyList<E> {
 
     /**
      * Сортировка массива объектов реализующих compareTo интерфейсов Comparator либо Comparable
+     * @param comparator интерфейс, который реализует объект для сортировки
      */
     void sort(Comparator<? super E> comparator);
 
