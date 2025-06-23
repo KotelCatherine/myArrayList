@@ -7,7 +7,7 @@ import java.util.Comparator;
 public final class Utils {
 
 
-    public static <T> void quickSort(MyList<T> elementData) {
+    public static <T extends Comparable<T>> void quickSort(MyList<T> elementData) {
 
         if (elementData == null){
             throw new NullPointerException("List is null");

@@ -74,5 +74,4 @@ public interface MyList<E> {
      */
     void sort(Comparator<? super E> comparator);
 
-
 }
