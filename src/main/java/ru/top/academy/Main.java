@@ -1,62 +1,69 @@
 package ru.top.academy;
 
-
-import ru.top.academy.Animal.*;
+import ru.top.academy.Animal.Cat;
+import ru.top.academy.Animal.Dog;
+import ru.top.academy.Animal.Croc;
+import ru.top.academy.Animal.Animal;
+import ru.top.academy.Car.Car;
+import ru.top.academy.Car.Subaru;
+import ru.top.academy.Car.Toyota;
 import ru.top.academy.interfaceMyArrayList.MyList;
+
+import java.util.Comparator;
 
 
 public class Main {
 
-    static MyList<Animal> list = new MyArrayList<>();
     static Animal dog = new Dog("dog", 5);
     static Animal cat = new Cat("cat", 2);
     static Animal crocodile = new Croc("croc", 15);
+    static Car subaru = new Subaru(488, "wrx");
+    static Car toyota = new Toyota(448, "levin");
 
     public static void main(String[] args) {
 
-        addElements();
-        getElements();
+        MyList<Animal> listAnimal = new MyArrayList<>();
+        MyList<Integer> listInt = new MyArrayList<>();
+        MyList<Car> carMyList = new MyArrayList<>();
+
+        listInt.add(5);
+        listInt.add(55);
+        listInt.add(15);
+        listInt.add(0);
+        listInt.add(1);
+
+        listAnimal.add(crocodile);
+        listAnimal.add(crocodile);
+        listAnimal.add(dog);
+        listAnimal.add(dog);
+        listAnimal.add(crocodile);
+
+        carMyList.add(subaru);
+        carMyList.add(toyota);
 
 
-        System.out.println("\nДобавление элемента congo -> " + list.add(3, new Congo("congo", 15)));
-        System.out.println("Список до сортировки" + list);
+        carMyList.sort(Comparator.comparing(Car::getName));
+        System.out.println(carMyList);
 
-        list.sort(Animal::compareTo);
+        Utils.quickSort(listInt);
+        Utils.quickSort(listAnimal);
 
-        System.out.println("Список после сортировки" + list);
-        System.out.println("Поиск индекса у элемента cat -> " + list.indexOf(cat));
-        System.out.println("Удаленный элемент с индексом 0 -> " + list.remove(0));
+        System.out.println(listInt);
 
-        list.remove(cat);
+        listInt.sort(Comparator.reverseOrder());
+        System.out.println(listInt);
 
-        System.out.println("Список после удаления элемента cat -> " + list);
-        System.out.println("Размер массива -> " + list.size());
+        System.out.println(listAnimal);
 
-        list.clear();
 
-        System.out.println("Список после очищения -> " + list);
+        listAnimal.add(dog);
+        listAnimal.add(crocodile);
+        listAnimal.add(dog);
+        listAnimal.add(cat);
 
-    }
+        listAnimal.sort(Comparator.comparing(Animal::getName));
+        System.out.println(listAnimal);
 
-    /**
-     * Получение списка элементов
-     */
-    private static void getElements() {
-
-        for (int i = 0; i < list.size(); i++) {
-            System.out.print(list.get(i) + " ");
-        }
-
-    }
-
-    /**
-     * Добавление элементов в список
-     */
-    private static void addElements() {
-
-        list.add(crocodile);
-        list.add(dog);
-        list.add(cat);
 
     }
 

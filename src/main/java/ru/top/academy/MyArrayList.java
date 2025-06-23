@@ -123,18 +123,22 @@ public class MyArrayList<E> implements MyList<E> {
 
     }
 
+    @Override
     public int size() {
         return size;
     }
 
+    @Override
     public int indexOf(E element) {
         return elementMatch(element);
     }
 
+    @Override
     public E get(int index) {
         return elementData[index];
     }
 
+    @Override
     public boolean add(E element) {
         return addElement(element);
     }
@@ -158,6 +162,7 @@ public class MyArrayList<E> implements MyList<E> {
 
     }
 
+    @Override
     public E remove(int index) {
 
         isIncorrectIndex(index);
@@ -168,6 +173,7 @@ public class MyArrayList<E> implements MyList<E> {
 
     }
 
+    @Override
     public boolean remove(E element) {
 
         int index = elementMatch(element);
@@ -181,6 +187,7 @@ public class MyArrayList<E> implements MyList<E> {
 
     }
 
+    @Override
     public void clear() {
 
         for (int i = 0; i < size; i++) {
@@ -193,9 +200,8 @@ public class MyArrayList<E> implements MyList<E> {
 
     @Override
     public void sort(Comparator<? super E> comparator) {
-        Arrays.sort(elementData, 0, size, comparator);
+        Utils.quickSort(elementData, comparator);
     }
-
 
     @Override
     public String toString() {

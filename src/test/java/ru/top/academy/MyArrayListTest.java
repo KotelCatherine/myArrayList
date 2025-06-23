@@ -7,7 +7,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import ru.top.academy.Animal.Animal;
 import ru.top.academy.Animal.Cat;
-import ru.top.academy.Animal.Congo;
+import ru.top.academy.Animal.Kangaroo;
 import ru.top.academy.Animal.Dog;
 import ru.top.academy.interfaceMyArrayList.MyList;
 
@@ -74,6 +74,16 @@ class MyArrayListTest {
         assertTrue(list.remove(element));
     }
 
+    @Test
+    void removeElement_whenElementIsFirst_thenTrue(){
+
+        list.remove(cat);
+
+        assertEquals(dog, list.get(0));
+        assertEquals(2, list.size());
+
+    }
+
     @ParameterizedTest
     @MethodSource("testData")
     void removeElement_whenElementIsIncorrect_thenFalse(Animal element) {
@@ -126,7 +136,7 @@ class MyArrayListTest {
     }
 
     public static Stream<Animal> testData() {
-        return Stream.of(new Cat("cat", 5), new Congo("congo", 2), new Dog("dog", 8));
+        return Stream.of(new Cat("cat", 5), new Kangaroo("congo", 2), new Dog("dog", 8));
     }
 
     public static Stream<Animal> testDataForDelete() {
